@@ -57,7 +57,7 @@ useradd -s /usr/sbin/nologin -r -M cloudflared
 
 ```sh
 cat >/etc/default/cloudflared << EOF
-CLOUDFLARED_OPTS="--port 53--max-upstream-conns 0 --upstream https://1.1.1.1/dns-query --upstream https://1.0.0.1/dns-query --upstream https://[2620:119:35::35]/dns-query --upstream https://[2620:119:53::53]/dns-query"
+CLOUDFLARED_OPTS="--port 53 --max-upstream-conns 0 --upstream https://1.1.1.1/dns-query --upstream https://1.0.0.1/dns-query --upstream https://[2620:119:35::35]/dns-query --upstream https://[2620:119:53::53]/dns-query"
 EOF
 ```
   - set permission to cloudflared
@@ -78,15 +78,7 @@ systemctl daemon-reload && systemctl enable cloudflared && systemctl start cloud
   - add resolver updater
 
 ```sh
-cat >/usr/local/bin/u-resolver << EOF
-#!/bin/bash
-# Update default resolver
-rm -f /etc/resolv.conf
-cat >/etc/resolv.conf << EOF
-nameserver 127.0.0.1
-nameserver ::1
-EOF
-chmod +x /usr/local/bin/u-resolver
+wget -O /usr/local/bin/u-resolver https://raw.githubusercontent.com/malikshi/sing_box/main/u-resolver.sh && chmod +x /usr/local/bin/u-resolver
 ```
 
 ## Setting sing-box
@@ -131,7 +123,7 @@ Wants=network.target
 [Service]
 Type=simple
 ExecStartPre=/usr/local/bin/u-resolver
-ExecStart=/usr/local/bin/sing-box run -c /etc/sing-box/config.json
+ExecStart=/usr/local/bin/sing-box run -c /etc/sing-box/vvip.json
 Restart=on-failure
 RestartSec=30s
 RestartPreventExitStatus=23
