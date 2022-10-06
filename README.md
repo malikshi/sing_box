@@ -109,7 +109,7 @@ wget -c -P /etc/sing-box/ https://raw.githubusercontent.com/malikshi/sing_box/ma
 ```
 - Edit Config
 
-Silahkan isi akun dengan akun vvip-iptunnels, jika bukan dari vvip-iptunnels silahkan ubah `true` menjadi `false` pada bagian `multiplex`. Dokumentasi lebih lengkap cek sing-box [configuration](https://sing-box.sagernet.org/configuration/outbound/)
+Jika menggunakan akun dari vvip-iptunnels silahkan ubah `false` menjadi `true` pada bagian `multiplex` untuk memperoleh ping lebih bagus namun untuk speedtest/streaming menjadi kurang bagus. Dokumentasi lebih lengkap cek sing-box [configuration](https://sing-box.sagernet.org/configuration/outbound/)
 
 - Install Systemd sing-box
 

@@ -71,7 +71,7 @@
         },
         "packet_encoding":"",
         "multiplex":{
-          "enabled":true,
+          "enabled":false,
           "protocol":"smux",
           "max_connections":4,
           "min_streams":4,
@@ -107,7 +107,7 @@
         },
         "packet_encoding":"",
         "multiplex":{
-          "enabled":true,
+          "enabled":false,
           "protocol":"smux",
           "max_connections":4,
           "min_streams":4,
@@ -137,7 +137,7 @@
           }
         },
         "multiplex":{
-          "enabled":true,
+          "enabled":false,
           "protocol":"smux",
           "max_connections":4,
           "min_streams":4,
@@ -168,7 +168,7 @@
           "insecure":false
         },
         "multiplex":{
-          "enabled":true,
+          "enabled":false,
           "protocol":"smux",
           "max_connections":4,
           "min_streams":4,
