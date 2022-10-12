@@ -2,7 +2,7 @@
 Tutorial sing-box client
 
 # Tutorial step by step
-Secara singkat prosesnya yakni compile/build sing-box terlebih dahulu, selanjutnya install DNS client DNS over HTTPS menggunakan cloudflared. Tahap Terakhir tinggal start sing-box.
+Secara singkat prosesnya yakni compile/build sing-box terlebih dahulu, selanjutnya Setting DNS Updater. Tahap Terakhir tinggal start sing-box.
 
 ## Build sing-box
 - Login as root
@@ -29,56 +29,13 @@ go install -v -tags "with_acme with_clash_api with_quic with_grpc with_wireguard
 cp ~/go/bin/sing-box /usr/local/bin/
 ```
 
-## Install DoH
-Disini akan menggunakan cloudflared karena simple penggunaannya, ada beberapa opsi lainnya seperti DNScrypt, Unbound, Knot Resolver.
+## Setting DNS
+Disini akan menggantikan default dns dari WAN/Modem.
 
-- Check arsitektur perangkat
-
-```sh
-dpkg --print-architecture
-```
-
-- Download cloudflared, Go to https://github.com/cloudflare/cloudflared/releases , copy link url binary yang sesuai dengan arsitektur perangkat, dan download. contoh:
-
-```sh
-wget https://github.com/cloudflare/cloudflared/releases/download/2022.9.1/cloudflared-linux-arm64
-```
-  - Copy binary dan beri permission 755
-
-```sh
-cp cloudflared-linux-arm64 /usr/local/bin/cloudflared && chmod +x /usr/local/bin/cloudflared
-```
-  - set user cloudflared
-
-```sh
-useradd -s /usr/sbin/nologin -r -M cloudflared
-```
-  - set config default cloudflared
-
-```sh
-cat >/etc/default/cloudflared << EOF
-CLOUDFLARED_OPTS="--port 53 --max-upstream-conns 0 --upstream https://1.1.1.1/dns-query --upstream https://1.0.0.1/dns-query --upstream https://[2620:119:35::35]/dns-query --upstream https://[2620:119:53::53]/dns-query"
-EOF
-```
-  - set permission to cloudflared
-
-```sh
-chown cloudflared:cloudflared /etc/default/cloudflared && chown cloudflared:cloudflared /usr/local/bin/cloudflared
-```
-  - add systemd cloudflared
-
-```sh
-cd /lib/systemd/system && wget https://raw.githubusercontent.com/trinib/Adguard-Wireguard-Unbound-Cloudflare/main/cloudflared.service && cd $h
-```
-  - enable cloudflared
-
-```sh
-systemctl daemon-reload && systemctl enable cloudflared && systemctl start cloudflared
-```
   - add resolver updater
 
 ```sh
-wget -O /usr/local/bin/u-resolver https://raw.githubusercontent.com/malikshi/sing_box/main/u-resolver.sh && chmod +x /usr/local/bin/u-resolver
+wget -O /usr/local/bin/u-resolver https://raw.githubusercontent.com/malikshi/sing_box/main/u-resolver.sh && chmod +x /usr/local/bin/u-resolver && u-resolver
 ```
 
 ## Setting sing-box
