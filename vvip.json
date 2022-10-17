@@ -42,7 +42,7 @@
         "tolerance":0,
         "outbounds":[
           "trojan-gfw",
-          "vmess-ws",
+          "vmess-ws-443",
           "vmess-grpc",
           "trojan-ws",
           "trojan-grpc"
@@ -76,7 +76,7 @@
       },
       {
         "type":"vmess",
-        "tag":"vmess-ws",
+        "tag":"vmess-ws-443",
         "server":"172.67.73.39",
         "server_port":443,
         "uuid":"UUID-VVIP-IPTUNNELS",
