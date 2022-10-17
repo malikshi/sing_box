@@ -55,7 +55,7 @@
         "server":"SERVERAKUN",
         "server_port":443,
         "password":"PASSWORD-VVIP-IPTUNNELS",
-        "tcp_fast_open":true,
+        "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
         "tls":{
           "enabled":true,
@@ -85,7 +85,7 @@
         "alter_id":0,
         "global_padding":false,
         "authenticated_length":true,
-        "tcp_fast_open":true,
+        "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
         "tls":{
           "enabled":true,
@@ -125,7 +125,7 @@
         "alter_id":0,
         "global_padding":false,
         "authenticated_length":true,
-        "tcp_fast_open":true,
+        "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
         "packet_encoding":"",
         "multiplex":{
@@ -155,7 +155,7 @@
         "alter_id":0,
         "global_padding":false,
         "authenticated_length":true,
-        "tcp_fast_open":true,
+        "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
         "tls":{
           "enabled":true,
@@ -182,7 +182,7 @@
         "server":"104.26.5.10",
         "server_port":443,
         "password":"PASSWORD-VVIP-IPTUNNELS",
-        "tcp_fast_open":true,
+        "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
         "tls":{
           "enabled":true,
@@ -217,7 +217,7 @@
         "server":"104.17.2.81",
         "server_port":443,
         "password":"PASSWORD-VVIP-IPTUNNELS",
-        "tcp_fast_open":true,
+        "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
         "tls":{
           "enabled":true,
