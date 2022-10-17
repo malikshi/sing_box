@@ -247,7 +247,7 @@
         "password":"PASSWORD-VVIP-IPTUNNELS",
         "tcp_fast_open":false,
         "domain_strategy":"ipv4_only",
-        "plugin": "v2ray",
+        "plugin": "v2ray-plugin",
         "plugin_opts": "path=/buy-ss-ws-pm-telegram-at-synricha;host=store.zoom.us;tls",
         "udp_over_tcp": false,
         "multiplex":{
